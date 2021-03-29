@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.mvvmlib.ext.getVmClazz
-import com.example.mvvmlib.manager.NetWorkManager
+import com.example.mvvmlib.manager.net.NetWorkManager
 import com.example.mvvmlib.utils.UiHandler
 import com.example.mvvmlib.vm.BaseViewModel
 

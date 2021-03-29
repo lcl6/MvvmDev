@@ -3,7 +3,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mvvmlib.ext.getVmClazz
-import com.example.mvvmlib.manager.NetWorkManager
+import com.example.mvvmlib.manager.net.NetWorkManager
 import com.example.mvvmlib.vm.BaseViewModel
 
 /**
@@ -66,7 +66,7 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
     /**
      * 网络变化监听
      */
-    private fun onNetWorkChange() {
+    open fun onNetWorkChange() {
 
     }
 
@@ -86,13 +86,13 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
     /**
      * 事件绑定
      */
-    private fun setListener() {
+    open fun setListener() {
     }
 
     /**
      * 初始化数据
      */
-    private fun initData() {
+    open fun initData() {
 
     }
 
@@ -105,7 +105,7 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
     /**
      * 初始化databinding
      */
-    private fun initDataBinding() {
+    open fun initDataBinding() {
     }
 
     /**

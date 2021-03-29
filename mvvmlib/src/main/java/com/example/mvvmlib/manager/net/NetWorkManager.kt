@@ -1,4 +1,4 @@
-package com.example.mvvmlib.manager
+package com.example.mvvmlib.manager.net
 
 import NetState
 import com.example.mvvmlib.event.EventLiveData
@@ -10,7 +10,7 @@ import com.example.mvvmlib.event.EventLiveData
 public class NetWorkManager private constructor(){
     val mNetWorkManager =EventLiveData<NetState>()
     companion object{
-        val INSTANCE:NetWorkManager by lazy (mode = LazyThreadSafetyMode.SYNCHRONIZED){
+        val INSTANCE: NetWorkManager by lazy (mode = LazyThreadSafetyMode.SYNCHRONIZED){
             NetWorkManager()
         }
     }
