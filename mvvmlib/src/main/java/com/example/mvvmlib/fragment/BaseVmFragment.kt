@@ -84,7 +84,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> :Fragment(){
         mViewModel = creatViewModel()
         initView(savedInstanceState)
         creatObserver()
-        initUiConfig()
+        initUiConfig(mViewModel)
         initData()
         setListener()
 
@@ -96,14 +96,21 @@ abstract class BaseVmFragment<VM : BaseViewModel> :Fragment(){
      */
     fun addLoadingObserver(vararg viewModels: BaseViewModel){
         viewModels.forEach {
-            it.loadChange.showDialog.observeInFragment(this, Observer {
-                showLoading(it)
-            })
-            it.loadChange.dissmissDialog.observeInFragment(this, Observer {
-                disMissDialog(it)
-            })
+            initUiConfig(it)
         }
     }
+
+    /**
+     * 显示空数据
+     * @param it String?
+     */
+    abstract fun showNoData(it: String?)
+
+    /**
+     * 显示结果
+     * @param it String?
+     */
+    abstract fun showResult(it: String?)
 
     /**
      * 事件绑定
@@ -115,20 +122,21 @@ abstract class BaseVmFragment<VM : BaseViewModel> :Fragment(){
     /**
      *页面请求配置
      */
-    private fun initUiConfig() {
-        mViewModel.loadChange.showDialog.observeInFragment(this, Observer {
-            showLoading(it)
-        })
-        mViewModel.loadChange.dissmissDialog.observeInFragment(this, Observer {
-            disMissDialog(it)
-        })
+    private fun initUiConfig(viewModel: BaseViewModel) {
+       viewModel.apply {
+            loadChange.showLoading.observeInFragment(this@BaseVmFragment, Observer {
+                showLoading(it)
+            })
+            loadChange.showResult.observeInFragment(this@BaseVmFragment, Observer {
+                showResult(it)
+            })
+            loadChange.showNoData.observeInFragment(this@BaseVmFragment, Observer {
+                showNoData(it)
+            })
+        }
 
     }
 
-    /**
-     * 弹窗消失
-     */
-    abstract fun disMissDialog(it: Boolean?)
 
     /**
      * 请求中

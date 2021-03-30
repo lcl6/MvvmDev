@@ -7,6 +7,7 @@ import androidx.databinding.ViewDataBinding
 import com.example.mvvmlib.vm.BaseViewModel
 
 /**
+ *
  * 采用databingding 的acitivity
  * @Author liacl
  * @Date 2021/3/29 0029-16:31

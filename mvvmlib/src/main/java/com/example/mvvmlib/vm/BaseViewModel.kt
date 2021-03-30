@@ -14,7 +14,8 @@ open class BaseViewModel: ViewModel() {
     val loadChange by lazy { UiconfigChange() }
 
     inner class UiconfigChange{
-        val showDialog by lazy { EventLiveData<String>() }
-        val dissmissDialog by lazy { EventLiveData<Boolean>() }
+        val showLoading by lazy { EventLiveData<String>() }
+        val showResult by lazy { EventLiveData<String>() }
+        val showNoData by lazy { EventLiveData<String>() }
     }
 }

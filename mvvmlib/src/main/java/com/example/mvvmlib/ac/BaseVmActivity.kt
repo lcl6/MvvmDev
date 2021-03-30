@@ -29,7 +29,7 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
 
         mViewModel= creatViewModel()
         initView(savedInstanceState)
-        initUiConfig()
+        initUiConfig(mViewModel)
         cretObserver()
         initData()
         setListener()
@@ -41,21 +41,34 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
     /**
      * 初始化页面配置
      */
-    private fun initUiConfig() {
-        mViewModel.loadChange.showDialog.observeInActivity(this, Observer {
-            showLoading(it)
-        })
-        mViewModel.loadChange.dissmissDialog.observeInActivity(this, Observer {
-            disMissDialog(it)
-        })
+    private fun initUiConfig(viewModel: BaseViewModel) {
+        viewModel.apply {
+            loadChange.showLoading.observeInActivity(this@BaseVmActivity, Observer {
+                showLoading(it)
+            })
+            loadChange.showResult.observeInActivity(this@BaseVmActivity, Observer {
+                showResult(it)
+            })
+           loadChange.showNoData.observeInActivity(this@BaseVmActivity, Observer {
+                showNoData(it)
+            })
+        }
+
 
     }
 
     /**
-     * 隐藏dialog
-     * @param it Boolean?
+     * 显示空数据
+     * @param it String?
      */
-    abstract fun disMissDialog(it: Boolean?)
+    abstract fun showNoData(it: String?)
+
+    /**
+     *显示结果
+     * @param it String?
+     */
+    abstract fun showResult(it: String?)
+
 
     /**
      * 显示dialog
@@ -127,12 +140,7 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
      */
     fun addLoadingObserver(vararg viewModels: BaseViewModel){
         viewModels.forEach {
-            it.loadChange.showDialog.observeInActivity(this, Observer {
-                showLoading(it)
-            })
-            it.loadChange.dissmissDialog.observeInActivity(this, Observer {
-                disMissDialog(it)
-            })
+            initUiConfig(it)
         }
     }
 }

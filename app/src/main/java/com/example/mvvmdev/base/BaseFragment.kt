@@ -8,13 +8,15 @@ import com.example.mvvmlib.vm.BaseViewModel
  */
 abstract class BaseFragment<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbfragment<VM,DB>(){
 
-
     override fun showLoading(msg: String?) {
     }
 
-    override fun disMissDialog(it: Boolean?) {
-
+    override fun showResult(it: String?) {
     }
+
+    override fun showNoData(it: String?) {
+    }
+
 
 
 }
