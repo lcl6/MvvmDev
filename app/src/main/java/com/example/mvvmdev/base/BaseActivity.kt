@@ -9,7 +9,7 @@ import com.example.mvvmlib.vm.BaseViewModel
  * @Author liancl
  * @Date 2021/3/30 0030-9:09
  */
-abstract class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbActivity<VM,DB>() {
+abstract class  BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbActivity<VM,DB>() {
 
     /**
      * 自定义弹窗
@@ -22,8 +22,11 @@ abstract class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbActivi
     override fun showNoData(it: String?) {
     }
 
-    override fun showResult(it: String?) {
-
+    override fun showFail(it: String?) {
     }
+
+    override fun showSuccess(it: String?) {
+    }
+
 
 }

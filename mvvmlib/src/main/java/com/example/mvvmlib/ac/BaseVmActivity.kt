@@ -46,8 +46,11 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
             loadChange.showLoading.observeInActivity(this@BaseVmActivity, Observer {
                 showLoading(it)
             })
-            loadChange.showResult.observeInActivity(this@BaseVmActivity, Observer {
-                showResult(it)
+            loadChange.showSuccess.observeInActivity(this@BaseVmActivity, Observer {
+                showSuccess(it)
+            })
+            loadChange.showFail.observeInActivity(this@BaseVmActivity, Observer {
+                showFail(it)
             })
            loadChange.showNoData.observeInActivity(this@BaseVmActivity, Observer {
                 showNoData(it)
@@ -58,16 +61,22 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
     }
 
     /**
+     * 显示失败
+     * @param it String?
+     */
+    abstract fun showFail(it: String?)
+
+    /**
+     * 显示成功
+     * @param it String?
+     */
+    abstract fun showSuccess(it: String?)
+
+    /**
      * 显示空数据
      * @param it String?
      */
     abstract fun showNoData(it: String?)
-
-    /**
-     *显示结果
-     * @param it String?
-     */
-    abstract fun showResult(it: String?)
 
 
     /**

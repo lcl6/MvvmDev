@@ -106,11 +106,6 @@ abstract class BaseVmFragment<VM : BaseViewModel> :Fragment(){
      */
     abstract fun showNoData(it: String?)
 
-    /**
-     * 显示结果
-     * @param it String?
-     */
-    abstract fun showResult(it: String?)
 
     /**
      * 事件绑定
@@ -127,15 +122,30 @@ abstract class BaseVmFragment<VM : BaseViewModel> :Fragment(){
             loadChange.showLoading.observeInFragment(this@BaseVmFragment, Observer {
                 showLoading(it)
             })
-            loadChange.showResult.observeInFragment(this@BaseVmFragment, Observer {
-                showResult(it)
+            loadChange.showSuccess.observeInFragment(this@BaseVmFragment, Observer {
+                showSuccess(it)
             })
+           loadChange.showFail.observeInFragment(this@BaseVmFragment, Observer {
+               showFail(it)
+           })
             loadChange.showNoData.observeInFragment(this@BaseVmFragment, Observer {
                 showNoData(it)
             })
         }
 
     }
+
+    /**
+     * 显示失败
+     * @param it String?
+     */
+    abstract fun showFail(it: String?)
+
+    /**
+     * 显示成功
+     * @param it String?
+     */
+    abstract fun showSuccess(it: String?)
 
 
     /**

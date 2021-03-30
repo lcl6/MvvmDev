@@ -11,12 +11,15 @@ abstract class BaseFragment<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbfragme
     override fun showLoading(msg: String?) {
     }
 
-    override fun showResult(it: String?) {
-    }
 
     override fun showNoData(it: String?) {
     }
 
+    override fun showFail(it: String?) {
+    }
+
+    override fun showSuccess(it: String?) {
+    }
 
 
 }
