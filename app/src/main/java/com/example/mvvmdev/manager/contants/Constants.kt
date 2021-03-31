@@ -6,5 +6,5 @@ package com.example.mvvmdev.manager.contants
  */
 
 val BASEURL:String by lazy {
-    "https://gank.io/api/v2/"
+    "https://www.wanandroid.com/"
 }

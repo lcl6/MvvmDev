@@ -2,6 +2,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import com.example.mvvmlib.ext.getVmClazz
 import com.example.mvvmlib.manager.net.NetWorkManager
 import com.example.mvvmlib.vm.BaseViewModel
@@ -28,9 +29,10 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
     private fun init(savedInstanceState: Bundle?) {
 
         mViewModel= creatViewModel()
+
         initView(savedInstanceState)
         initUiConfig(mViewModel)
-        cretObserver()
+        creatObserver()
         initData()
         setListener()
         NetWorkManager.INSTANCE.mNetWorkManager.observeInActivity(this, Observer {
@@ -95,7 +97,7 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
     /**
      * 生成观察者
      */
-    abstract fun cretObserver()
+    abstract fun creatObserver()
 
     /**
      * 生成VM

@@ -1,0 +1,40 @@
+package com.example.mvvmdev.base.vm
+
+import ApiResponse
+import BaseResponse
+import androidx.lifecycle.viewModelScope
+import com.example.mvvmlib.vm.BaseViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+
+/**
+ * @Author liancl
+ * @Date 2021/3/31 0031-13:44
+ */
+fun <T> BaseViewModel.request(block: suspend ()->ApiResponse<T>,
+                              success:(T)->Unit,
+                              loading:String="加载中",
+                              loadingSuccess:String="成功",
+                              loadingNodata:String="暂无数据"
+):Job{
+
+    return viewModelScope.launch {
+        runCatching {
+            loadChange.showLoading.postValue(loading);
+            block()
+        }.onSuccess {
+            val data = it.getRequestData()
+            if (data==null) {
+                loadChange.showNoData.postValue(loadingNodata)
+            }
+            success(data)
+            if (it.isSuccess()) {
+                loadChange.showSuccess.postValue(loadingSuccess)
+            }else{
+                loadChange.showFail.postValue(it.getRequestMsg())
+            }
+        }.onFailure {
+            loadChange.showFail.postValue(it.message)
+        }
+    }
+}

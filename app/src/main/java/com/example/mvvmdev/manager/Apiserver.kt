@@ -1,5 +1,7 @@
 package com.example.mvvmdev.manager
 
+import ApiResponse
+import BannerResponse
 import retrofit2.http.*
 
 /**
@@ -8,9 +10,8 @@ import retrofit2.http.*
 
 interface Apiserver {
 
-    @GET("data/category/Girl/type/Girl/page/{page}/count/{count}")
-    suspend fun  getGirlList(@Path("page") page: String,
-                             @Path("count") count: String)
 
+    @GET("banner/json")
+    suspend fun getBanner():ApiResponse<ArrayList<BannerResponse>>
 
 }
