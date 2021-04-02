@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.mvvmdev.R
 import com.example.mvvmdev.databinding.ActivityMainBinding
+import kLog
 
 class MainActivity : BaseActivity<HomeViewModel, ActivityMainBinding>() {
 
@@ -25,7 +26,7 @@ class MainActivity : BaseActivity<HomeViewModel, ActivityMainBinding>() {
 
     override fun creatObserver() {
         homeViewModel.bannerList.observe(this, Observer {
-            Log.e("homeViewModel", it.toString())
+            kLog.e(it.toString() )
         })
     }
 

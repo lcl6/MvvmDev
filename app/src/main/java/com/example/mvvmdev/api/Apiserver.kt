@@ -11,7 +11,7 @@ import retrofit2.http.*
 interface Apiserver {
 
 
-    @GET("banner/json1")
+    @GET("banner/json")
     suspend fun getBanner():ApiResponse<ArrayList<BannerResponse>>
 
 }
