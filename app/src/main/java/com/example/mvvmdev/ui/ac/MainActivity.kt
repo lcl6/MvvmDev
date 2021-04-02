@@ -1,20 +1,26 @@
-package com.example.mvvmdev
+package com.example.mvvmdev.ui.ac
 
 import BaseActivity
 import HomeViewModel
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import com.example.mvvmdev.R
 import com.example.mvvmdev.databinding.ActivityMainBinding
-import com.example.mvvmdev.manager.net.apiManger
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class MainActivity : BaseActivity<HomeViewModel, ActivityMainBinding>() {
 
+
+    companion object{
+        @JvmStatic
+        fun start(context: Context) {
+            val starter = Intent(context, MainActivity::class.java)
+            context.startActivity(starter)
+        }
+    }
     private  val homeViewModel: HomeViewModel by viewModels()
 
     override fun creatObserver() {
@@ -25,6 +31,7 @@ class MainActivity : BaseActivity<HomeViewModel, ActivityMainBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         homeViewModel.getBanner()
+
     }
 
     override fun getLayoutId(): Int {

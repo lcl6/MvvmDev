@@ -1,4 +1,4 @@
-package com.example.mvvmdev.manager.contants
+package com.example.mvvmdev.contants
 
 /**
  * @Author liancl

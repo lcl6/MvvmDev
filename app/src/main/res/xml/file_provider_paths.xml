@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <!-- root-path 对应DEVICE_ROOT,也就是File DEVICE_ROOT = new File("/")，即根目录，一般不需要配置。
+files-path对应 content.getFileDir() 获取到的目录。
+cache-path对应 content.getCacheDir() 获取到的目录
+external-path对应 Environment.getExternalStorageDirectory() 指向的目录。
+external-files-path对应 ContextCompat.getExternalFilesDirs() 获取到的目录。
+external-cache-path对应 ContextCompat.getExternalCacheDirs() 获取到的目录。-->
+    <!--<root-path-->
+        <!--name="provider_path"-->
+        <!--path="" />-->
+
+
+    <!--自定义地址-->
+    <external-files-path
+        name="app_provider_path"
+        path="test_Q" />
+
+    <!--默认地址-->
+    <external-path
+        name="dcim_provider_path"
+        path="DCIM" />
+    <path>
+        <root-path name="root_path" path="."/>
+    </path>
+</paths>

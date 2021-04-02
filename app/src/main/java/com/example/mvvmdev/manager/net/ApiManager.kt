@@ -1,7 +1,7 @@
 package com.example.mvvmdev.manager.net
 
-import com.example.mvvmdev.manager.Apiserver
-import com.example.mvvmdev.manager.contants.BASEURL
+import com.example.mvvmdev.api.Apiserver
+import com.example.mvvmdev.contants.BASEURL
 
 /**
  * 网络请求类

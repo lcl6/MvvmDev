@@ -16,13 +16,14 @@ abstract class  BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbActiv
      * @param it String?
      */
     override fun showLoading(it: String?) {
-        showToast(this,it)
+//        showToast(this,it)
     }
 
     override fun showNoData(it: String?) {
     }
 
     override fun showFail(it: String?) {
+        showToast(this,it)
     }
 
     override fun showSuccess(it: String?) {

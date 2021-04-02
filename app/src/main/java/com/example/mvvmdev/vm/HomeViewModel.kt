@@ -13,8 +13,9 @@ import kotlinx.coroutines.withContext
 class HomeViewModel :BaseViewModel() {
 
     val bannerList:MutableLiveData<ArrayList<BannerResponse>> = MutableLiveData()
+
     fun getBanner(){
-        request({requestManger.getBanner()},{bannerList.value=it})
+        request({requestManger.getBanner()},{bannerList.value=it},{loadChange.showFail.value=("${it.mErrorCode}: ${it.mErrorMsg}")})
     }
 
 }
