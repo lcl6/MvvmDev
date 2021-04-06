@@ -1,5 +1,5 @@
 package com.example.mvvmdev.ui.ac
-import BaseActivity
+import BaseDbActivity
 import WelcomeViewModel
 import android.Manifest
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.permissionx.guolindev.PermissionX
  * @Author liancl
  * @Date 2021/4/1 0001-8:41
  */
-class WelcomeActivity :BaseActivity<WelcomeViewModel,ActivityWelcomeBinding>(){
+class WelcomeActivity :BaseDbActivity<WelcomeViewModel,ActivityWelcomeBinding>(){
 
     override fun creatObserver() {
 

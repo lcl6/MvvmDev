@@ -7,7 +7,7 @@ import com.example.mvvmdev.databinding.FgHomeBinding
  * @Author liancl
  * @Date 2021/3/29 0029-15:37
  */
-class HomeFragment :BaseFragment<HomeViewModel,FgHomeBinding>(){
+class HomeFragment :BaseDbFragment<HomeViewModel,FgHomeBinding>(){
 
     override fun layoutId(): Int {
         return R.layout.fg_home

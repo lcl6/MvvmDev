@@ -6,11 +6,11 @@ import com.example.mvvmlib.vm.BaseViewModel
 
 /**
  *
- * 基类不使用databinding
+ * 基类依赖于databindin
  * @Author liancl
  * @Date 2021/3/30 0030-9:09
  */
-abstract class  BaseActivity<VM:BaseViewModel> :BaseVmActivity<VM>() {
+abstract class  BaseDbActivity<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbActivity<VM,DB>() {
 
     /**
      * 自定义弹窗

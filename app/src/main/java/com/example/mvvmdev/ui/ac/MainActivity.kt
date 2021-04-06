@@ -1,18 +1,17 @@
 package com.example.mvvmdev.ui.ac
 
-import BaseActivity
+import BaseDbActivity
 import HomeViewModel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.mvvmdev.R
 import com.example.mvvmdev.databinding.ActivityMainBinding
 import kLog
 
-class MainActivity : BaseActivity<HomeViewModel, ActivityMainBinding>() {
+class MainActivity : BaseDbActivity<HomeViewModel, ActivityMainBinding>() {
 
 
     companion object{
