@@ -1,10 +1,11 @@
+package com.example.mvvmlib.fragment
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.example.mvvmlib.fragment.BaseVmFragment
 import com.example.mvvmlib.vm.BaseViewModel
 
 /**

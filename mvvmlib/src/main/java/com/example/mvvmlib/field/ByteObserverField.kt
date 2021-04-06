@@ -1,3 +1,5 @@
+package com.example.mvvmlib.field
+
 import androidx.databinding.ObservableField
 
 /**
@@ -5,6 +7,7 @@ import androidx.databinding.ObservableField
  * @Author liancl
  * @Date 2021/3/30 0030-10:44
  */
+
 class ByteObserverField(value:Byte=0):ObservableField<Byte>(value) {
     override fun get(): Byte {
         return super.get()!!

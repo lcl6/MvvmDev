@@ -1,5 +1,5 @@
 package com.example.mvvmdev.base
-import BaseVmDbfragment
+import com.example.mvvmlib.fragment.BaseVmDbfragment
 import androidx.databinding.ViewDataBinding
 import com.example.mvvmlib.vm.BaseViewModel
 
@@ -8,7 +8,7 @@ import com.example.mvvmlib.vm.BaseViewModel
  * @Author liancl
  * @Date 2021/3/29 0029-17:24
  */
-abstract class BaseDbFragment<VM:BaseViewModel,DB:ViewDataBinding> :BaseVmDbfragment<VM,DB>(){
+abstract class BaseDbFragment<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbfragment<VM, DB>(){
 
     override fun showLoading(msg: String?) {
     }

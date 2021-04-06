@@ -1,6 +1,5 @@
 package com.example.mvvmlib.manager.net
 
-import NetState
 import com.example.mvvmlib.event.EventLiveData
 
 /**
