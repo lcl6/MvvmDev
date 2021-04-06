@@ -1,3 +1,4 @@
+import com.example.mvvmdev.base.bean.response.ApiResponse
 import com.example.mvvmdev.manager.net.apiManger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -14,7 +15,7 @@ val requestManger: RequestManger by lazy (mode = LazyThreadSafetyMode.SYNCHRONIZ
 
 class RequestManger {
 
-    suspend fun getBanner():ApiResponse<ArrayList<BannerResponse>>{
+    suspend fun getBanner(): ApiResponse<ArrayList<BannerResponse>> {
         return withContext(Dispatchers.IO) {
             apiManger.getBanner()
         }

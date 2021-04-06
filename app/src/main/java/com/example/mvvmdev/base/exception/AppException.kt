@@ -1,3 +1,5 @@
+package com.example.mvvmdev.base.exception
+
 /**
  *
  * 错误的基本格式

@@ -1,13 +1,13 @@
 package com.example.mvvmdev.ui.ac
 
-import BaseDbActivity
-import HomeViewModel
+import com.example.mvvmdev.vm.HomeViewModel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.mvvmdev.R
+import com.example.mvvmdev.base.BaseDbActivity
 import com.example.mvvmdev.databinding.ActivityMainBinding
 import kLog
 
@@ -30,6 +30,7 @@ class MainActivity : BaseDbActivity<HomeViewModel, ActivityMainBinding>() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+
         homeViewModel.getBanner()
 
     }

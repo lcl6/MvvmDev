@@ -1,6 +1,6 @@
 package com.example.mvvmdev.api
 
-import ApiResponse
+import com.example.mvvmdev.base.bean.response.ApiResponse
 import BannerResponse
 import retrofit2.http.*
 
@@ -12,6 +12,6 @@ interface Apiserver {
 
 
     @GET("banner/json")
-    suspend fun getBanner():ApiResponse<ArrayList<BannerResponse>>
+    suspend fun getBanner(): ApiResponse<ArrayList<BannerResponse>>
 
 }

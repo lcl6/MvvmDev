@@ -1,3 +1,4 @@
+package com.example.mvvmdev.base
 import androidx.databinding.ViewDataBinding
 import com.example.mvvmlib.fragment.BaseVmFragment
 import com.example.mvvmlib.vm.BaseViewModel

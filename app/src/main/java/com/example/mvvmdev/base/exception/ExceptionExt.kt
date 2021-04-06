@@ -1,7 +1,6 @@
 package com.example.mvvmdev.base.exception
 
-import AppException
-import NetEnum
+import com.example.mvvmdev.base.enu.NetEnum
 import android.util.MalformedJsonException
 import com.google.gson.JsonParseException
 import org.json.JSONException
@@ -14,7 +13,7 @@ import java.text.ParseException
  * @Author liancl
  * @Date 2021/4/2 0002-9:56
  */
-fun Throwable.handlerError():AppException{
+fun Throwable.handlerError(): AppException {
     var exEnum: NetEnum
     when(this){
         is HttpException -> {
@@ -27,13 +26,13 @@ fun Throwable.handlerError():AppException{
             exEnum= NetEnum.PARSE_ERROR
         }
         is javax.net.ssl.SSLException -> {
-            exEnum=NetEnum.SSL_ERROR
+            exEnum= NetEnum.SSL_ERROR
         }
         is java.net.SocketTimeoutException , is java.net.UnknownHostException -> {
-            exEnum=NetEnum.TIMEOUT_ERROR
+            exEnum= NetEnum.TIMEOUT_ERROR
         }
         else->{
-            exEnum=NetEnum.UNKNOWN
+            exEnum= NetEnum.UNKNOWN
         }
     }
     return AppException(exEnum.getValue(),exEnum.getKey(),exEnum.getValue())

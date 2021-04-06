@@ -1,3 +1,5 @@
+package com.example.mvvmdev.base
+import BaseVmActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding

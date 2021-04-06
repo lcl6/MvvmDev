@@ -1,8 +1,7 @@
 package com.example.mvvmdev.base.vm
 
-import ApiResponse
-import AppException
-import BaseResponse
+import com.example.mvvmdev.base.exception.AppException
+import com.example.mvvmdev.base.bean.response.BaseResponse
 import android.text.TextUtils
 import androidx.lifecycle.viewModelScope
 import com.example.mvvmdev.base.exception.handlerError
@@ -23,9 +22,9 @@ import kotlinx.coroutines.launch
  *  第一次调用接口等   需要loading
  *
  * @receiver BaseViewModel
- * @param block SuspendFunction0<BaseResponse<T>>
+ * @param block SuspendFunction0<com.example.mvvmdev.base.bean.response.BaseResponse<T>>
  * @param success Function1<T, Unit>
- * @param error Function1<AppException, Unit>
+ * @param error Function1<com.example.mvvmdev.base.exception.AppException, Unit>
  * @param loading String 如果为空 不显示loading 改loading 为局部的loading 类似加载框
  * @param loadingSuccess String  如果为空 不回调
  * @param loadingNoData String   如果

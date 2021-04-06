@@ -1,3 +1,5 @@
+package com.example.mvvmdev.vm
+
 import com.example.mvvmlib.vm.BaseViewModel
 
 /**

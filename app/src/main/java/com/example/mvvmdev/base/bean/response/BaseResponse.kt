@@ -1,4 +1,4 @@
-import kotlin.properties.Delegates
+package com.example.mvvmdev.base.bean.response
 
 /**
  *

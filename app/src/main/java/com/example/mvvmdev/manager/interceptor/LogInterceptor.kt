@@ -1,9 +1,10 @@
+package com.example.mvvmdev.manager.interceptor
+
 import android.util.Log
 import okhttp3.FormBody
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.nio.charset.Charset
-import java.nio.charset.UnsupportedCharsetException
 
 /**
  * 日志拦截器

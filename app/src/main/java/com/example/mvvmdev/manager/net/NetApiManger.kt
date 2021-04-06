@@ -1,3 +1,8 @@
+package com.example.mvvmdev.manager.net
+
+import com.example.mvvmdev.manager.interceptor.CacheInterceptor
+import com.example.mvvmdev.manager.interceptor.LogInterceptor
+import com.example.mvvmdev.manager.interceptor.NetWorkInterceptor
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

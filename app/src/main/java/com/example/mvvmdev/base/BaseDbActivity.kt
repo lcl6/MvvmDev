@@ -1,5 +1,6 @@
-import android.os.Bundle
-import androidx.databinding.DataBindingUtil
+package com.example.mvvmdev.base
+
+import BaseVmDbActivity
 import androidx.databinding.ViewDataBinding
 import com.example.mvvmlib.ext.showToast
 import com.example.mvvmlib.vm.BaseViewModel

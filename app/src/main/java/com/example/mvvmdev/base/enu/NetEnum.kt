@@ -1,3 +1,5 @@
+package com.example.mvvmdev.base.enu
+
 /**
  * 错误定义枚举
  * @Author liancl

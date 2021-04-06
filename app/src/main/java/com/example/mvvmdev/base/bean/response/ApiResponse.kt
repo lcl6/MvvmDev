@@ -1,3 +1,5 @@
+package com.example.mvvmdev.base.bean.response
+
 /**
  * @Author liancl
  * @Date 2021/3/31 0031-11:13

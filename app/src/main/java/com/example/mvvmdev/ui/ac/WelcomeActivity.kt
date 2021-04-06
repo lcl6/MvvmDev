@@ -1,9 +1,9 @@
 package com.example.mvvmdev.ui.ac
-import BaseDbActivity
-import WelcomeViewModel
+import com.example.mvvmdev.vm.WelcomeViewModel
 import android.Manifest
 import android.os.Bundle
 import com.example.mvvmdev.R
+import com.example.mvvmdev.base.BaseDbActivity
 import com.example.mvvmdev.databinding.ActivityWelcomeBinding
 import com.example.mvvmlib.ext.showToast
 import com.permissionx.guolindev.PermissionX
@@ -13,7 +13,7 @@ import com.permissionx.guolindev.PermissionX
  * @Author liancl
  * @Date 2021/4/1 0001-8:41
  */
-class WelcomeActivity :BaseDbActivity<WelcomeViewModel,ActivityWelcomeBinding>(){
+class WelcomeActivity : BaseDbActivity<WelcomeViewModel, ActivityWelcomeBinding>(){
 
     override fun creatObserver() {
 
