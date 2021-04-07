@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.example.mvvmdev.ui.widget.TitleBarLayout
+        <com.dev.mvvmdev.ui.widget.TitleBarLayout
             android:id="@+id/ttb"
             style="@style/Base_Title_Bar"
             />

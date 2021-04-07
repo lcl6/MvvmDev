@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MvvmDev</string>
+
+    <!-- 加载更多 -->
+    <string name="pandora_load_finish_tips">已经全部加载完毕了哟~</string>
+    <string name="pandora_loading_more_tips">努力为您加载中~</string>
+    <string name="pandora_load_fail_tips">加载失败，请点击重试~</string>
+
+
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.mvvmdev">
+    package="com.dev.mvvmdev">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
-        android:name=".base.App"
+        android:name="com.dev.mvvmdev.base.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -29,10 +29,10 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <activity android:name="com.example.mvvmdev.ui.ac.MainActivity">
+        <activity android:name="com.dev.mvvmdev.ui.ac.MainActivity">
 
         </activity>
-        <activity android:name="com.example.mvvmdev.ui.ac.WelcomeActivity" >
+        <activity android:name="com.dev.mvvmdev.ui.ac.WelcomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

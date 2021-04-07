@@ -2,6 +2,8 @@
 # 基本适配器添加 上拉刷新 加载更多
 # loading 加载框
 #错误捕捉
+#BaseActivity 集成titlebar
+
 
         
  
