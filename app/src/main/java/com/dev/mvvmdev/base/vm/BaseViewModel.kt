@@ -1,11 +1,11 @@
 package com.dev.mvvmdev.base.vm
 
-import com.dev.mvvmdev.base.exception.AppException
-import com.dev.mvvmdev.base.bean.response.BaseResponse
 import android.text.TextUtils
 import androidx.lifecycle.viewModelScope
-import com.dev.mvvmdev.base.exception.handlerError
 import com.dev.mvvm.vm.BaseViewModel
+import com.dev.mvvmdev.base.bean.response.BaseResponse
+import com.dev.mvvmdev.base.exception.AppException
+import com.dev.mvvmdev.base.exception.handlerError
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
@@ -46,6 +46,28 @@ fun <T> BaseViewModel.request(
             val data = it.getRequestData()
             success(data)
             if (it.isSuccess()) loadChange.showSuccess.postValue(loadingSuccess) else loadChange.showFail.postValue(it.getRequestMsg())
+        }.onFailure {
+            //错误统一处理 以及特殊处理
+            error(it.handlerError())
+        }
+    }
+}
+
+fun <T> BaseViewModel.requestUnCheck(
+    block: suspend () ->T,
+    success: (T) -> Unit,
+    error:(AppException)->Unit,
+    loading: String = "",
+    loadingSuccess: String = "",
+    loadingNoData: String = ""
+): Job {
+    return viewModelScope.launch {
+        runCatching {
+            if(!TextUtils.isEmpty(loading))loadChange.showLoading.postValue(loading);
+            block()
+        }.onSuccess {
+            success(it)
+            loadChange.showSuccess.postValue(loadingSuccess)
         }.onFailure {
             //错误统一处理 以及特殊处理
             error(it.handlerError())

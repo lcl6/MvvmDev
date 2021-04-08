@@ -1,5 +1,5 @@
 package com.dev.mvvmdev.base.ui
-import BaseVmActivity
+import com.dev.mvvm.ac.BaseVmActivity
 import com.dev.mvvm.vm.BaseViewModel
 
 /**
@@ -8,7 +8,7 @@ import com.dev.mvvm.vm.BaseViewModel
  * @Author liancl
  * @Date 2021/3/30 0030-9:09
  */
-abstract class  BaseActivity<VM:BaseViewModel> :BaseVmActivity<VM>() {
+abstract class  BaseActivity<VM:BaseViewModel> : BaseVmActivity<VM>() {
     /**
      * 自定义弹窗
      * @param it String?

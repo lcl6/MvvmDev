@@ -1,3 +1,5 @@
+package com.dev.mvvmdev.bean
+
 /**
  * 业务基本格式
  * @Author liancl
