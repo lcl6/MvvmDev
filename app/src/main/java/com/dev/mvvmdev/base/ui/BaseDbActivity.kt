@@ -4,8 +4,8 @@ import androidx.databinding.ViewDataBinding
 import com.dev.mvvm.ac.BaseVmDbActivity
 import com.dev.mvvm.ext.kLog
 import com.dev.mvvm.vm.BaseViewModel
-import com.dev.mvvmdev.base.disMissDialog
-import com.dev.mvvmdev.base.showLoad
+import com.dev.mvvmdev.ui.ext.context.disMissDialog
+import com.dev.mvvmdev.ui.ext.context.showLoad
 
 /**
  *

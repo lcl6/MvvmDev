@@ -2,8 +2,8 @@ package com.dev.mvvmdev.base.ui
 import com.dev.mvvm.ext.kLog
 import com.dev.mvvm.fragment.BaseVmFragment
 import com.dev.mvvm.vm.BaseViewModel
-import com.dev.mvvmdev.base.disMissDialog
-import com.dev.mvvmdev.base.showLoad
+import com.dev.mvvmdev.ui.ext.context.disMissDialog
+import com.dev.mvvmdev.ui.ext.context.showLoad
 
 /**
  * 基本的fragment 不使用databinding

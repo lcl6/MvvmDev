@@ -1,4 +1,4 @@
-package com.dev.mvvmdev.base;
+package com.dev.mvvmdev.ui.ext.context;
 
 import android.app.Activity
 import androidx.fragment.app.Fragment
