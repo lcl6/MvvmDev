@@ -23,6 +23,7 @@ class TestViewModel :BaseViewModel() {
     }
 
     fun getData(){
+
         requestUnCheck({requestManger.getTestData()},{
             dataBean.value=it
         },{})

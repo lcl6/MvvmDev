@@ -1,4 +1,4 @@
-package com.dev.mvvmdev.manager.interceptor
+package com.dev.mvvmdev.base.net.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

@@ -7,6 +7,9 @@ import com.dev.mvvmdev.base.status.LoadingCallback
 import com.dev.mvvmdev.base.status.TimeoutCallback
 import com.kingja.loadsir.core.LoadSir
 
+val appContext by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
+    App()
+}
 /**
  * app
  * @Author liancl

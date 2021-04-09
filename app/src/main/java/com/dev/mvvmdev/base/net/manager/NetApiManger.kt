@@ -1,8 +1,8 @@
-package com.dev.mvvmdev.manager.net
+package com.dev.mvvmdev.base.net.manager
 
-import com.dev.mvvmdev.manager.interceptor.CacheInterceptor
-import com.dev.mvvmdev.manager.interceptor.LogInterceptor
-import com.dev.mvvmdev.manager.interceptor.NetWorkInterceptor
+import com.dev.mvvmdev.base.net.interceptor.HeadInterceptor
+import com.dev.mvvmdev.base.net.interceptor.LogInterceptor
+import com.dev.mvvmdev.base.net.interceptor.NetWorkInterceptor
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -44,9 +44,11 @@ class NetApiManger private constructor(){
     get() {
        return OkHttpClient().newBuilder()
            .addNetworkInterceptor(NetWorkInterceptor())//添加网络拦截器
-           .addInterceptor(LogInterceptor())//添加日志拦截器
+           .addInterceptor(HeadInterceptor())//添加日志拦截器
 //           .cache()//设置缓存
-           .addInterceptor(CacheInterceptor())//添加缓存拦截器
+//           .addInterceptor(CacheInterceptor(7))//添加缓存拦截器
+           .addInterceptor(LogInterceptor())//添加日志拦截器
+
            .connectTimeout(30, TimeUnit.SECONDS)
            .readTimeout(10,TimeUnit.SECONDS)
            .writeTimeout(10,TimeUnit.SECONDS)

@@ -1,7 +1,8 @@
+
 import com.dev.mvvmdev.base.bean.response.ApiResponse
+import com.dev.mvvmdev.base.net.manager.apiManger
 import com.dev.mvvmdev.bean.BannerResponse
 import com.dev.mvvmdev.bean.NewsBean
-import com.dev.mvvmdev.manager.net.apiManger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

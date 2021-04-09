@@ -1,4 +1,4 @@
-package com.dev.mvvmdev.manager.net
+package com.dev.mvvmdev.base.net.manager
 
 import com.dev.mvvmdev.api.Apiserver
 import com.dev.mvvmdev.contants.BASEURL
