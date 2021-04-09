@@ -1,4 +1,9 @@
-#已经集成功能
+
+
+# 基于jetpack +mvvm+retrofit 使用的库有 
+## mmkv 轻度存储
+## permissionsdispatcher 权限申请
+## glide 网络 框架
 ## 权限库申请替换成 permissionsdispatcher
 ## 基本适配器  databinding 适配器
 ## loading 全局单例加载框 
