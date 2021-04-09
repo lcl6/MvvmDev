@@ -2,6 +2,7 @@ package com.dev.mvvmdev.ui.ext.context;
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
@@ -39,6 +40,7 @@ fun Activity.disMissDialog(){
 }
 
 
+
 /**
  * 简单的 dialog 扩展
  * @receiver Fragment
@@ -61,6 +63,16 @@ fun Fragment.showLoad(msg:String){
 fun Fragment.disMissDialog(){
     activity?.let { ProgressDialogHelper.get().create(it).dismiss() }
 }
+
+/**
+ * 跳转界面
+ * @receiver Activity 需要跳转的界面
+ */
+inline fun <reified T:Activity>Activity.start(){
+    val starter = Intent(this, T::class.java)
+    this.startActivity(starter)
+}
+
 
 
 /**
@@ -101,3 +113,5 @@ fun Context.isNetworkAvailable(): Boolean {
     Log.i("update_statut", "Network is available : FALSE ")
     return false
 }
+
+

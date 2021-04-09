@@ -33,7 +33,7 @@ abstract class BaseDbRecyclerViewAdapter<T, DB : ViewDataBinding>(context: Conte
         )
     }
 
-    class ViewDBHolder<DB :ViewDataBinding>(dataBinding: DB) : BaseDbViewHolder< DB>(dataBinding)
+    class ViewDBHolder<DB :ViewDataBinding>(dataBinding: DB) : BaseDbViewHolder<DB>(dataBinding)
 
     abstract fun getLayoutId(): Int
 

@@ -7,6 +7,7 @@ import com.dev.mvvm.ext.showToast
 import com.dev.mvvmdev.R
 import com.dev.mvvmdev.base.ui.BaseDbActivity
 import com.dev.mvvmdev.databinding.ActivityWelcomeBinding
+import com.dev.mvvmdev.ui.ext.context.start
 import com.dev.mvvmdev.vm.WelcomeViewModel
 import permissions.dispatcher.*
 
@@ -31,7 +32,7 @@ class WelcomeActivity : BaseDbActivity<WelcomeViewModel, ActivityWelcomeBinding>
     }
 
     private fun initLogic() {
-        TestAcitvity.start(this)
+        start<TestAcitvity>()
         finish()
     }
 
