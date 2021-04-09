@@ -6,15 +6,15 @@ import android.os.Bundle
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.mvvm.ext.kLog
 import com.dev.mvvmdev.R
 import com.dev.mvvmdev.base.ui.BaseDbActivity
 import com.dev.mvvmdev.databinding.ActivityTestBinding
 import com.dev.mvvmdev.ui.adapter.TestAdapter
+import com.dev.mvvmdev.ui.ext.view.initDb
+import com.dev.mvvmdev.ui.ext.view.initLoadSir
 import com.dev.mvvmdev.vm.TestViewModel
 import com.kingja.loadsir.core.LoadService
-import com.kingja.loadsir.core.LoadSir
 
 /**
  * 测试databinding
@@ -22,7 +22,7 @@ import com.kingja.loadsir.core.LoadSir
  * @Date 2021/4/7 0007-14:09
  */
 class TestAcitvity : BaseDbActivity<TestViewModel,ActivityTestBinding>() {
-   private lateinit var register:LoadService<Any>
+   private lateinit var register: LoadService<Any>
     private val testAdapter: TestAdapter = TestAdapter(this)
     companion object{
         @JvmStatic
@@ -36,7 +36,6 @@ class TestAcitvity : BaseDbActivity<TestViewModel,ActivityTestBinding>() {
 
     override fun creatObserver() {
         testViewModel.dataBean.observe(this, Observer {
-//            register.showSuccess()
             mDatabind.newsBean=it
         })
         testViewModel.bannerList.observe(this, Observer {
@@ -46,20 +45,16 @@ class TestAcitvity : BaseDbActivity<TestViewModel,ActivityTestBinding>() {
             testAdapter.setData(it)
             testAdapter.notifyDataSetChanged()
         })
-
+        mDatabind.viewModel=testViewModel
 
     }
 
-    override fun initView(savedInstanceState: Bundle?) {
 
-        mDatabind.recycleView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        mDatabind.recycleView.adapter=testAdapter
-        register = LoadSir.getDefault().register(findViewById<ViewGroup>(R.id.vg_content))
+    override fun initView(savedInstanceState: Bundle?) {
+        mDatabind.recycleView.initDb(this,testAdapter)
+        register = findViewById<ViewGroup>(R.id.vg_content).initLoadSir {}
         testViewModel.getData()
         testViewModel.getBanner()
-
-
-
 
     }
     override fun getLayoutId(): Int {

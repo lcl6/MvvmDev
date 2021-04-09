@@ -151,7 +151,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> :Fragment(){
     /**
      * 请求中
      */
-    abstract fun showLoading(msg: String?="请稍等...")
+    abstract fun showLoading(msg: String="请稍等...")
 
     /**
      * 初始化数据

@@ -1,6 +1,9 @@
 package com.dev.mvvmdev.base.ui
+import com.dev.mvvm.ext.kLog
 import com.dev.mvvm.fragment.BaseVmFragment
 import com.dev.mvvm.vm.BaseViewModel
+import com.dev.mvvmdev.base.disMissDialog
+import com.dev.mvvmdev.base.showLoad
 
 /**
  * 基本的fragment 不使用databinding
@@ -9,18 +12,25 @@ import com.dev.mvvm.vm.BaseViewModel
  */
 abstract class BaseFragment<VM:BaseViewModel> :BaseVmFragment<VM>(){
 
-    override fun showLoading(msg: String?) {
+    override fun showLoading(msg: String) {
+        showLoad(msg)
+        kLog.e("BaseFragment loading")
     }
 
 
     override fun showNoData(it: String?) {
+        dismiss()
     }
 
     override fun showFail(it: String?) {
+        dismiss()
     }
 
     override fun showSuccess(it: String?) {
+        dismiss()
     }
 
-
+    private fun dismiss() {
+        disMissDialog()
+    }
 }

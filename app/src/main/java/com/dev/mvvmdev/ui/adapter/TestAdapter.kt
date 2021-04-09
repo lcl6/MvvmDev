@@ -1,8 +1,8 @@
 package com.dev.mvvmdev.ui.adapter;
 
 import android.content.Context
+import com.dev.mvvm.adapter.BaseDbRecyclerViewAdapter
 import com.dev.mvvmdev.R
-import com.dev.mvvmdev.base.adapter.BaseDbRecyclerViewAdapter
 import com.dev.mvvmdev.bean.BannerResponse
 import com.dev.mvvmdev.databinding.ItemTestBinding
 

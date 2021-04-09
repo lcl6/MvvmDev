@@ -6,6 +6,7 @@ import com.dev.mvvmdev.base.vm.request
 import com.dev.mvvmdev.base.vm.requestUnCheck
 import com.dev.mvvmdev.bean.BannerResponse
 import com.dev.mvvmdev.bean.NewsBean
+import kotlinx.coroutines.*
 import requestManger
 
 /**
@@ -27,6 +28,15 @@ class TestViewModel :BaseViewModel() {
         },{})
 
     }
+    fun clickTest(){
+        loadChange.showLoading.postValue("加载中...")
 
+        val coroutineScope = CoroutineScope(Dispatchers.IO + Job())
+        coroutineScope.launch {
+            delay(3000)
+            loadChange.showSuccess.postValue("")
+        }
+
+    }
 
 }

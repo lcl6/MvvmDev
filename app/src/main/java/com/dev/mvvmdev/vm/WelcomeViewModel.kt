@@ -7,4 +7,6 @@ import com.dev.mvvm.vm.BaseViewModel
  * @Date 2021/4/1 0001-8:43
  */
 class WelcomeViewModel :BaseViewModel() {
+
+
 }

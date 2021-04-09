@@ -11,6 +11,9 @@
         <variable
             name="dataList"
             type="ArrayList&lt;BannerResponse>" />
+        <variable
+            name="viewModel"
+            type="com.dev.mvvmdev.vm.TestViewModel" />
     </data>
 
     <LinearLayout
@@ -32,7 +35,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{newsBean.name+newsBean.title}"
+                app:text_null="@{newsBean.name+newsBean.title}"
+                android:padding="15dp"
+                android:onClick="@{() -> viewModel.clickTest()}"
                 />
 
             <EditText

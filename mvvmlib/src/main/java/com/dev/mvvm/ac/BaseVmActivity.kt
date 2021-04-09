@@ -66,26 +66,26 @@ abstract class BaseVmActivity<VM:BaseViewModel>:AppCompatActivity() {
      * 显示失败
      * @param it String?
      */
-    abstract fun showFail(it: String?)
+    abstract fun showFail(it: String)
 
     /**
      * 显示成功
      * @param it String?
      */
-    abstract fun showSuccess(it: String?)
+    abstract fun showSuccess(it: String)
 
     /**
      * 显示空数据
      * @param it String?
      */
-    abstract fun showNoData(it: String?)
+    abstract fun showNoData(it: String)
 
 
     /**
      * 显示dialog
      * @param it String?
      */
-    abstract fun showLoading(it: String?="请稍等...")
+    abstract fun showLoading(it: String="请稍等...")
 
     /**
      * 网络变化监听

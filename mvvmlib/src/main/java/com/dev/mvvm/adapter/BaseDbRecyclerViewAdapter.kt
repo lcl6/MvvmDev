@@ -1,4 +1,4 @@
-package com.dev.mvvmdev.base.adapter;
+package com.dev.mvvm.adapter;
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.dev.mvvm.adapter.BaseRecyclerViewAdapter
 import com.dev.mvvm.viewholder.BaseDbViewHolder
 
 /**
