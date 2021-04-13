@@ -42,11 +42,14 @@ class NetApiManger private constructor(){
 
     private val okHttpClient:OkHttpClient
     get() {
-       return OkHttpClient().newBuilder()
+//        val sslParams = HttpsUtils.getSslSocketFactory()
+
+        return OkHttpClient().newBuilder()
            .addNetworkInterceptor(NetWorkInterceptor())//添加网络拦截器
            .addInterceptor(HeadInterceptor())//添加日志拦截器
 //           .cache()//设置缓存
 //           .addInterceptor(CacheInterceptor(7))//添加缓存拦截器
+//           .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager))//https
            .addInterceptor(LogInterceptor())//添加日志拦截器
 
            .connectTimeout(30, TimeUnit.SECONDS)
