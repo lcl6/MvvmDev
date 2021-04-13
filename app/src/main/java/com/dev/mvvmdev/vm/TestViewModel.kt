@@ -17,6 +17,8 @@ class TestViewModel :BaseViewModel() {
      val dataBean :MutableLiveData<NewsBean> = MutableLiveData()
     val bannerList:MutableLiveData<ArrayList<BannerResponse>> = MutableLiveData()
 
+    val crash:MutableLiveData<Boolean> = MutableLiveData()
+
     fun getBanner(){
 
         request({ requestManger.getBanner()},{bannerList.value=it},{loadChange.showFail.value=("${it.mErrorCode}: ${it.mErrorMsg}")})
@@ -37,6 +39,13 @@ class TestViewModel :BaseViewModel() {
             delay(3000)
             loadChange.showSuccess.postValue("")
         }
+
+    }
+
+    fun clickCrash(){
+        crash.value=true
+        val string:String="1"
+        val get = string[8]
 
     }
 

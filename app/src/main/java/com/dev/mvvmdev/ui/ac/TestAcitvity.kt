@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.dev.mvvm.ext.kLog
+import com.dev.mvvm.ext.showToast
 import com.dev.mvvmdev.R
 import com.dev.mvvmdev.base.ui.BaseDbActivity
 import com.dev.mvvmdev.databinding.ActivityTestBinding
@@ -44,6 +45,10 @@ class TestAcitvity : BaseDbActivity<TestViewModel,ActivityTestBinding>() {
             kLog.e(it.toString())
             testAdapter.setData(it)
             testAdapter.notifyDataSetChanged()
+        })
+
+        testViewModel.crash.observe(this, Observer {
+            showToast(this,"点击了闪退")
         })
         mDatabind.viewModel=testViewModel
 

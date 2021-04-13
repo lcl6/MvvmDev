@@ -39,7 +39,13 @@
                 android:padding="15dp"
                 android:onClick="@{() -> viewModel.clickTest()}"
                 />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试崩溃"
+                android:padding="15dp"
+                android:onClick="@{() -> viewModel.clickCrash()}"
+                />
             <EditText
                 android:id="@+id/ed_name"
                 android:layout_width="match_parent"

@@ -1,6 +1,6 @@
 package com.dev.mvvmdev.base.net.interceptor
 
-import com.dev.mvvmdev.base.appContext
+import com.dev.mvvmdev.base.App
 import com.dev.mvvmdev.ui.ext.context.isNetworkAvailable
 import okhttp3.CacheControl
 import okhttp3.Interceptor
@@ -15,13 +15,13 @@ class CacheInterceptor(var day: Int = 7) :Interceptor {
         var request = chain.request()
         val newBuilder = request.newBuilder()
 
-        if (!appContext.isNetworkAvailable()) {
+        if (!App.instance.isNetworkAvailable()) {
             request = request.newBuilder()
                 .cacheControl(CacheControl.FORCE_CACHE)
                 .build()
         }
         val response = chain.proceed(request)
-        if (!appContext.isNetworkAvailable()) {
+        if (!App.instance.isNetworkAvailable()) {
             val maxAge = 60 * 60
             response.newBuilder()
                 .removeHeader("Pragma")

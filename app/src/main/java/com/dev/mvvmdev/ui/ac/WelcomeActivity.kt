@@ -34,6 +34,7 @@ class WelcomeActivity : BaseDbActivity<WelcomeViewModel, ActivityWelcomeBinding>
     private fun initLogic() {
         start<TestAcitvity>()
         finish()
+
     }
 
     override fun getLayoutId(): Int {

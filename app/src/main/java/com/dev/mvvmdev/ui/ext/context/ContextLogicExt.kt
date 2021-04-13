@@ -3,13 +3,17 @@ package com.dev.mvvmdev.ui.ext.context;
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.os.storage.StorageManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.dev.mvvm.widget.ProgressDialogHelper
-import com.dev.mvvmdev.base.appContext
+import com.dev.mvvmdev.base.App
+import java.lang.reflect.Array
 
 
 /**
@@ -82,7 +86,7 @@ inline fun <reified T:Activity>Activity.start(){
  */
 fun Context.isNetworkAvailable(): Boolean {
     val connectivityManager =
-        appContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        App.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         val capabilities =
             connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
@@ -115,3 +119,84 @@ fun Context.isNetworkAvailable(): Boolean {
 }
 
 
+/** 获取应用程序名称 */
+@JvmOverloads
+fun Context.getAppName(packageName: String = getPackageName()): String {
+    try {
+        return resources.getString(packageManager.getPackageInfo(packageName, 0).applicationInfo.labelRes)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return ""
+}
+
+/** 获取客户端版本名称 */
+@JvmOverloads
+fun Context.getVersionName(packageName: String = getPackageName()): String {
+    try {
+        return packageManager.getPackageInfo(packageName, 0).versionName
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return ""
+}
+
+/** 获取客户端版本号 */
+@JvmOverloads
+fun Context.getVersionCode(packageName: String = getPackageName()): Long {
+    try {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            packageManager.getPackageInfo(packageName, 0).longVersionCode
+        } else {
+            packageManager.getPackageInfo(packageName, 0).versionCode.toLong()
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return -1
+}
+
+/** 获取APP的图标 */
+fun Context.getAppIcon(packageName: String): Drawable? {
+    try {
+        val packageInfo: PackageInfo? = packageManager.getPackageInfo(packageName, 0)
+        return packageInfo?.applicationInfo?.loadIcon(packageManager)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return null
+}
+
+
+/** 获取存储路径，first为内置存储路径，second为外置存储路径 */
+fun Context.getStoragePath(): Pair<String?, String?> {
+    try {
+        val storageManager = getSystemService(Context.STORAGE_SERVICE) as StorageManager
+        val storageVolumeClass = Class.forName("android.os.storage.StorageVolume")
+        val getVolumeList = storageManager.javaClass.getMethod("getVolumeList")
+        val getPath = storageVolumeClass.getMethod("getPath")
+        val isRemovable = storageVolumeClass.getMethod("isRemovable")
+        val result = getVolumeList.invoke(storageManager) ?: return Pair(null, null)
+        val length = Array.getLength(result)
+
+        var internal: String? = null
+        var external: String? = null
+
+        for (i in 0 until length) {
+            val storageVolumeElement = Array.get(result, i)
+            val path: String? = getPath.invoke(storageVolumeElement) as String
+            val removable: Boolean = isRemovable.invoke(storageVolumeElement) as Boolean
+            if (!removable) {
+                internal = path// 内置路径
+                continue
+            } else {
+                external = path// 外置路径
+                continue
+            }
+        }
+        return Pair(internal, external)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return Pair(null, null)
+}
